@@ -6,7 +6,5 @@
   "repository": "git@github.com:platocrat/foffe-web-scrape.git",
   "author": "platocrat [platocrat@tuta.io]",
   "license": "MIT",
-  "dependencies": {
-    "nightmare": "^3.0.2"
-  }
+  "dependencies": {}
 }
