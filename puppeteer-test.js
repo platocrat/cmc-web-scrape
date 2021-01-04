@@ -155,7 +155,7 @@ const url = 'https://coinmarketcap.com/'; // this semi-colon is needed
       })
     })
 
-    fs.writeFile('./cmc-btc-historical-data.json', data.toString(), error => {
+    fs.writeFile('./cmc-btc-historical-data.json', JSON.stringify(data), error => {
       if (error) {
         console.log('Error writing file', error)
       } else {
@@ -172,25 +172,3 @@ const url = 'https://coinmarketcap.com/'; // this semi-colon is needed
     await browser.close()
   }
 })();
-
-
-/**
-  // .end().then(console.log)
-  .catch(error => {
-    console.log("Couldn't click because: ", error)
-  })
-*/
-
-/**
- * @dev Granular approach to add intermediate actions and functions
-const goToPage = nightmare.goto(url)
-// how to wait on a page
-const waitOnPage = goToPage.wait(2000)
-
-const closePage = waitOnPage.end().then(console.log)
-  .catch(error => {
-    console.error('Search failed:', error)
-  })
-
-closePage
-*/
