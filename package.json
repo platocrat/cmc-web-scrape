@@ -2,7 +2,7 @@
   "name": "foffe-web-scrape",
   "version": "0.1.0",
   "description": "Web scraping crypto data for foffe",
-  "main": "nightmare-script.js",
+  "main": "puppeteer-test.js",
   "repository": "git@github.com:platocrat/foffe-web-scrape.git",
   "author": "platocrat [platocrat@tuta.io]",
   "license": "MIT",

@@ -1,19 +1,25 @@
+const puppeteer = require('puppeteer')
 
 
-const url = 'https://coinmarketcap.com/'
-
+const url = 'https://coinmarketcap.com/'; // this semi-colon is needed
 
 /**
  * @dev Testing to figure out optimal action sequence
  */
+(async () => {
+  const browser = await puppeteer.launch({ headless: false })
+  const page = await browser.newPage()
+  await page.goto('https://coinmarketcap.com/')
+  // await page.screenshot({ path: './example.png' })
+  await browser.close()
 
-  .goto(url)
   .click('a[href="/currencies/bitcoin/"')
+  // await browser.close()
+})();
 
+
+/**
   // .click('#sc-1ejyco6-0 gQqumm')
-  /**
-   * @dev Since left starts on November, first 11 clicks, then 12 * 7 clicks
-   */
   .click('react-datepicker__navigation react-datepicker__navigation--previous')
   .click('react-datepicker__navigation react-datepicker__navigation--previous')
   .click('react-datepicker__navigation react-datepicker__navigation--previous')
@@ -126,7 +132,7 @@ const url = 'https://coinmarketcap.com/'
   .catch(error => {
     console.log("Couldn't click because: ", error)
   })
-
+*/
 
 /**
  * @dev Granular approach to add intermediate actions and functions
