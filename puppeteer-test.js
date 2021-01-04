@@ -32,129 +32,43 @@ const url = 'https://coinmarketcap.com/'; // this semi-colon is needed
 
 
     await page.waitForSelector('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
+
     // Need to click 11 times, then 12 * 7 times
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    // 11 to get to December 2019
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-
-
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-    await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
-
+    let i = 0
+    while (i < 100) {
+      await page.click('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
+      i++
+    }
 
     // Click "Done"
     await page.waitForSelector('button[class="sc-1ejyco6-0 czBWYA"]')
     await page.click('button[class="sc-1ejyco6-0 czBWYA"]', { delay: 500 })
 
-    // Get table headers
+    // Extract data from table
+    let jsonFile
+
     const data = await page.evaluate(() => {
-      const rows = document.querySelectorAll('table tr')
+      let headers = document.querySelectorAll('th[class="stickyTop"]')
 
-      return Array.from(rows, row => {
-        const columns = row.querySelectorAll('td')
-
-        return Array.from(columns, column => column.innerText)
+      const headersParsed = Array.from(headers, header => {
+        return header.innerText
       })
+
+      headers = headersParsed.slice(9)
+
+      return headers
+
+      // const rows = document.querySelectorAll('table tr')
+
+      // return Array.from(rows, row => {
+      //   const columns = row.querySelectorAll('td')
+
+      //   return Array.from(columns, column => column.innerText)
+      // })
     })
 
+
+    // Save to .json file
     fs.writeFile('./cmc-btc-historical-data.json', JSON.stringify(data), error => {
       if (error) {
         console.log('Error writing file', error)
