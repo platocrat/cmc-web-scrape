@@ -3,10 +3,12 @@ const fs = require('fs')
 
 const url = 'https://coinmarketcap.com/'; // this semi-colon is needed
 
+
 /**
  * @dev Testing to figure out optimal action sequence
  */
 (async () => {
+
   const browser = await puppeteer.launch({
     headless: false,
     args: [ '--no-sandbox', '--disable-setuid-sandbox' ]
@@ -40,14 +42,19 @@ const url = 'https://coinmarketcap.com/'; // this semi-colon is needed
       i++
     }
 
+    // Click on day
+    await page.waitForSelector('div[aria-label="Choose Sunday, July 1st, 2012"]')
+    await page.click('div[aria-label="Choose Sunday, July 1st, 2012"]')
+
     // Click "Done"
     await page.waitForSelector('button[class="sc-1ejyco6-0 czBWYA"]')
     await page.click('button[class="sc-1ejyco6-0 czBWYA"]', { delay: 500 })
 
-    // Extract data from table
-    let jsonFile
+    // Wait for data to load
+    await page.waitForTimeout(3000)
 
-    const data = await page.evaluate(() => {
+    const headers = await page.evaluate(() => {
+      let keys = {}
       let headers = document.querySelectorAll('th[class="stickyTop"]')
 
       const headersParsed = Array.from(headers, header => {
@@ -56,15 +63,36 @@ const url = 'https://coinmarketcap.com/'; // this semi-colon is needed
 
       headers = headersParsed.slice(9)
 
-      return headers
+      for (let i = 0; i < headers.length; i++) {
+        if (headers[ i ].indexOf('*') != -1) {
+          headers[ i ] = headers[ i ].replace('*', '')
+          if (headers[ i ].indexOf('*') != -1) {
+            headers[ i ] = headers[ i ].replace('*', '')
+          }
+        }
+        if (headers[ i ].indexOf(' ') != -1) {
+          headers[ i ] = headers[ i ].replace(' ', '')
+        }
+      }
 
-      // const rows = document.querySelectorAll('table tr')
+      for (let i = 0; i < headers.length; i++) {
+        keys[ headers[ i ] ] = {}
+      }
 
-      // return Array.from(rows, row => {
-      //   const columns = row.querySelectorAll('td')
+      return keys
+    })
 
-      //   return Array.from(columns, column => column.innerText)
-      // })
+    // Extract data from table
+    const data = await page.evaluate(() => {
+
+      // Extract rows
+      let rows = document.querySelectorAll('table tr')
+
+      return Array.from(rows, row => {
+        const columns = row.querySelectorAll('td')
+
+        return Array.from(columns, column => column.innerText)
+      }).filter(item => item.length == 7)
     })
 
 
