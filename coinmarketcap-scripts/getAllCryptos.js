@@ -68,7 +68,7 @@ module.exports = {
           if (i != 10) {
             for (let j = 0; j < cryptoSymbols.length; j++) {
               // Go to home page
-              await page.goto(_url, { waitUntil: "load", timeout: 60 * 3 })
+              await page.goto(_url, { waitUntil: "load", timeout: 1000 * 60 * 3 })
 
               currencyURL = currencyURLs[ j ]
 
@@ -77,15 +77,15 @@ module.exports = {
                */
 
               // Click on currency/asset
-              await page.waitForSelector(`a[href="${currencyURL}"]`, { timeout: 60 * 3 }) // should be something like `bitcoin`
+              await page.waitForSelector(`a[href="${currencyURL}"]`, { timeout: 1000 * 60 * 3 }) // should be something like `bitcoin`
               await page.click(`a[href="${currencyURL}"]`) // should be something like `btc-usd`
 
               // Click on currency's/asset's historical data
-              await page.waitForSelector(`a[href="${currencyURL}historical-data/"]`, { timeout: 60 * 3 })
+              await page.waitForSelector(`a[href="${currencyURL}historical-data/"]`, { timeout: 1000 * 60 * 3 })
               await page.click(`a[href="${currencyURL}historical-data/"]`)
 
               // Click on currency's/asset's "Date Range"
-              await page.waitForSelector('button[class="sc-1ejyco6-0 gQqumm"]', { timeout: 60 * 3 })
+              await page.waitForSelector('button[class="sc-1ejyco6-0 gQqumm"]', { timeout: 1000 * 60 * 3 })
               await page.click('button[class="sc-1ejyco6-0 gQqumm"]')
 
 
