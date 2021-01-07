@@ -1,17 +1,9 @@
-const puppeteer = require('puppeteer')
-const fs = require('fs')
-
-
-// this semi-colon is needed because of opening `(` in the next code block
-const url = 'https://coinmarketcap.com/';
-
 /**
- * @dev Get BTC/USD data and save locally at
+ * @dev Get BTC/USD data and save locally to
  * `data/daily-historical-prices/coinmarketcap-data/btc-usd.json`
  */
-(async () => {
-
-  const browser = await puppeteer.launch({
+export async function getAndSaveBTC_USD_Data(_url, _puppeteer, _fs) {
+  const browser = await _puppeteer.launch({
     headless: false,
     args: [ '--no-sandbox', '--disable-setuid-sandbox' ]
   })
@@ -20,7 +12,7 @@ const url = 'https://coinmarketcap.com/';
     const page = await browser.newPage()
     await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36')
     await page.setViewport({ width: 1024, height: 1000 })
-    await page.goto(url)
+    await page.goto(_url)
 
     // Click on Bitcoin
     await page.waitForSelector('a[href="/currencies/bitcoin/"]')
@@ -106,7 +98,7 @@ const url = 'https://coinmarketcap.com/';
     }
 
     // Save to .json file
-    fs.writeFile(
+    _fs.writeFile(
       './data/daily-historical-prices/coinmarketcap-data/btc-usd.json',
       JSON.stringify(cleanedData),
       error => {
@@ -123,4 +115,4 @@ const url = 'https://coinmarketcap.com/';
   } finally {
     await browser.close()
   }
-})();
+}
