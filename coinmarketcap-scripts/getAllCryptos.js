@@ -15,7 +15,7 @@ module.exports = {
       try {
         const page = await browser.newPage()
         await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36')
-        await page.setViewport({ width: 1024, height: 1000 })
+        await page.setViewport({ width: 1524, height: 1300 })
         await page.goto(_url, { waitUntil: "load", timeout: 0 })
 
         let currencyURLs = await page.evaluate(() => {
@@ -63,6 +63,9 @@ module.exports = {
         }
 
         currencyURLs = currencyURLs.splice(1)
+
+        await browser.close()
+
 
         for (let i = 0; i < currencyURLs.length; i++) {
           if (i != 10) {
@@ -163,7 +166,7 @@ module.exports = {
 
               // Save to .json file
               _fs.writeFile(
-                `./data/daily-historical-prices/coinmarketcap-data/Cryptocurrencies${cryptoSymbols[ j ]}-usd.json`,
+                `./data/daily-historical-prices/coinmarketcap-data/Cryptocurrencies/${cryptoSymbols[ j ]}-usd.json`,
                 JSON.stringify(cleanedData),
                 error => {
                   if (error) {
