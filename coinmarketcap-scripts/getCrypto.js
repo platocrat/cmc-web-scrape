@@ -1,13 +1,13 @@
 module.exports = {
   /**
-   * @dev Used to get daily price data of CMC's top 100 "Cryptocurrencies"
+   * @dev Used to get CMC daily price data of single cryptocurrency
    * @param {string[]} _url 
    * @param {package} _puppeteer 
    * @param {package} _fs 
    * @param {string[]} _currencyName || _assetName
    * @param {string[]} _currencyPairs || _assetPairs
    */
-  getAndSaveData:
+  getAndSaveCryptocurrencyData:
     async (_url, _puppeteer, _fs, _currencyName, _currencyPairs) => {
       const browser = await _puppeteer.launch({
         headless: false,
