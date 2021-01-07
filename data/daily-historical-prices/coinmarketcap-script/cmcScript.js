@@ -31,7 +31,7 @@ module.exports = {
         await page.click(`a[href="/currencies/${_currencyName.toLowerCase()}/historical-data/"]`, { delay: 500 })
 
         // Click on currency's/asset's "Date Range"
-        await page.waitForSelector('button[class="sc-1ejyco6-0 gQqumm"]')
+        await page.waitForSelector('button[class="sc-1ejyco6-0 gQqumm"]', { timeout: 0 })
         await page.click('button[class="sc-1ejyco6-0 gQqumm"]', { delay: 500 })
 
 
