@@ -1,11 +1,13 @@
 const puppeteer = require('puppeteer')
 const fs = require('fs')
 
-const url = 'https://coinmarketcap.com/'; // this semi-colon is needed
 
+// this semi-colon is needed because of opening `(` in the next code block
+const url = 'https://coinmarketcap.com/';
 
 /**
- * @dev Testing to figure out optimal action sequence
+ * @dev Get BTC/USD data and save to 
+ * `./cmc-data/daily-historical-prices/btc-usd`
  */
 (async () => {
 
@@ -75,15 +77,13 @@ const url = 'https://coinmarketcap.com/'; // this semi-colon is needed
         }
       }
 
-      for (let i = 0; i < headers.length; i++) {
-        keys[ headers[ i ] ] = {}
-      }
-
-      return keys
+      return headers
     })
 
+    // console.log(headers)
+
     // Extract data from table
-    const data = await page.evaluate(() => {
+    const rawDataArray = await page.evaluate(() => {
 
       // Extract rows
       let rows = document.querySelectorAll('table tr')
@@ -95,22 +95,32 @@ const url = 'https://coinmarketcap.com/'; // this semi-colon is needed
       }).filter(item => item.length == 7)
     })
 
+    let cleanedData = []
+    let dataPointForOneDay = {}
+
+    for (let i = 0; i < rawDataArray.length; i++) {
+      for (let j = 0; j < rawDataArray[ i ].length; i++) {
+        dataPointForOneDay[ headers[ j ] ] = rawDataArray[ i ][ j ]
+      }
+      cleanedData.push(dataPointForOneDay)
+    }
 
     // Save to .json file
-    fs.writeFile('./cmc-btc-historical-data.json', JSON.stringify(data), error => {
-      if (error) {
-        console.log('Error writing file', error)
-      } else {
-        console.log('Successfully wrote to json file')
+    fs.writeFile(
+      './cmc-data/daily-historical-prices/btc-usd.json',
+      JSON.stringify(cleanedData),
+      error => {
+        if (error) {
+          console.log('Error writing file', error)
+        } else {
+          console.log('Successfully wrote to json file')
+        }
       }
-    })
-
+    )
   } catch (error) {
     console.error("Click failed because: ", error.message)
 
-
   } finally {
-
     await browser.close()
   }
 })();
