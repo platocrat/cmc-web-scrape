@@ -6,8 +6,8 @@ const fs = require('fs')
 const url = 'https://coinmarketcap.com/';
 
 /**
- * @dev Get BTC/USD data and save to 
- * `./cmc-data/daily-historical-prices/btc-usd`
+ * @dev Get BTC/USD data and save locally at
+ * `data/daily-historical-prices/coinmarketcap-data/btc-usd.json`
  */
 (async () => {
 
@@ -107,7 +107,7 @@ const url = 'https://coinmarketcap.com/';
 
     // Save to .json file
     fs.writeFile(
-      './cmc-data/daily-historical-prices/btc-usd.json',
+      './data/daily-historical-prices/coinmarketcap-data/btc-usd.json',
       JSON.stringify(cleanedData),
       error => {
         if (error) {
