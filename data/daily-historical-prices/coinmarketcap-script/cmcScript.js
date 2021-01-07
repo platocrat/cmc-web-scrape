@@ -22,15 +22,15 @@ module.exports = {
         await page.setViewport({ width: 1024, height: 1000 })
         await page.goto(_url)
 
-        // Click on Bitcoin
+        // Click on currency/asset
         await page.waitForSelector(`a[href="/currencies/${_currencyName.toLowerCase()}/"]`)
         await page.click(`a[href="/currencies/${_currencyName.toLowerCase()}/"]`, { delay: 500 })
 
-        // Click on Bitcoin's historical data
+        // Click on currency's/asset's historical data
         await page.waitForSelector(`a[href="/currencies/${_currencyName.toLowerCase()}/historical-data/"]`)
         await page.click(`a[href="/currencies/${_currencyName.toLowerCase()}/historical-data/"]`, { delay: 500 })
 
-        // Click on Bitcoin's "Date Range"
+        // Click on currency's/asset's "Date Range"
         await page.waitForSelector('button[class="sc-1ejyco6-0 gQqumm"]')
         await page.click('button[class="sc-1ejyco6-0 gQqumm"]', { delay: 500 })
 
@@ -56,8 +56,8 @@ module.exports = {
         await page.waitForTimeout(3000)
 
         const headers = await page.evaluate(() => {
+          let keys = []
           let headers = document.querySelectorAll('th[class="stickyTop"]')
-          console.log(headers)
 
           const headersParsed = Array.from(headers, header => {
             return header.innerText
@@ -77,13 +77,15 @@ module.exports = {
             }
           }
 
-          return headers
+          for (let i = 0; i < headers.length; i++) {
+            keys.push(headers[ i ])
+          }
+
+          return keys
         })
 
-        console.log("\n Headers: \n", headers)
-
         // Extract data from table
-        const rawDataArray = await page.evaluate(() => {
+        const data = await page.evaluate(() => {
 
           // Extract rows
           let rows = document.querySelectorAll('table tr')
@@ -95,14 +97,12 @@ module.exports = {
           }).filter(item => item.length == 7)
         })
 
-        console.log("\n Raw data array: \n", rawDataArray)
-
         let cleanedData = []
         let dataPointForOneDay = {}
 
-        for (let i = 0; i < rawDataArray.length; i++) {
-          for (let j = 0; j < rawDataArray[ i ].length; i++) {
-            dataPointForOneDay[ headers[ j ] ] = rawDataArray[ i ][ j ]
+        for (let i = 0; i < data.length; i++) {
+          for (let j = 0; j < data[ i ].length; j++) {
+            dataPointForOneDay[ headers[ j ] ] = data[ i ][ j ]
           }
           cleanedData.push(dataPointForOneDay)
         }
