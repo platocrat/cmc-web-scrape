@@ -20,22 +20,22 @@ module.exports = {
         const page = await browser.newPage()
         await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36')
         await page.setViewport({ width: 1024, height: 1000 })
-        await page.goto(_url)
+        await page.goto(_url, { waitUntil: "load", timeout: 0 })
 
         // Click on currency/asset
-        await page.waitForSelector(`a[href="/currencies/${_currencyName.toLowerCase()}/"]`)
-        await page.click(`a[href="/currencies/${_currencyName.toLowerCase()}/"]`, { delay: 500 })
+        await page.waitForSelector(`a[href="/currencies/${_currencyName.toLowerCase()}/"]`, { timeout: 0 })
+        await page.click(`a[href="/currencies/${_currencyName.toLowerCase()}/"]`)
 
         // Click on currency's/asset's historical data
-        await page.waitForSelector(`a[href="/currencies/${_currencyName.toLowerCase()}/historical-data/"]`)
-        await page.click(`a[href="/currencies/${_currencyName.toLowerCase()}/historical-data/"]`, { delay: 500 })
+        await page.waitForSelector(`a[href="/currencies/${_currencyName.toLowerCase()}/historical-data/"]`, { timeout: 0 })
+        await page.click(`a[href="/currencies/${_currencyName.toLowerCase()}/historical-data/"]`)
 
         // Click on currency's/asset's "Date Range"
         await page.waitForSelector('button[class="sc-1ejyco6-0 gQqumm"]', { timeout: 0 })
-        await page.click('button[class="sc-1ejyco6-0 gQqumm"]', { delay: 500 })
+        await page.click('button[class="sc-1ejyco6-0 gQqumm"]')
 
 
-        await page.waitForSelector('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]')
+        await page.waitForSelector('button[class="react-datepicker__navigation react-datepicker__navigation--previous"]', { timeout: 0 })
 
         // Need to click 11 times, then 12 * 7 times
         let i = 0
@@ -50,7 +50,7 @@ module.exports = {
 
         // Click "Done"
         await page.waitForSelector('button[class="sc-1ejyco6-0 czBWYA"]')
-        await page.click('button[class="sc-1ejyco6-0 czBWYA"]', { delay: 500 })
+        await page.click('button[class="sc-1ejyco6-0 czBWYA"]', { delay: 100 })
 
         // Wait for data to load
         await page.waitForTimeout(3000)
