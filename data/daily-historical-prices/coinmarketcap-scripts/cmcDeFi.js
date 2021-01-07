@@ -1,8 +1,12 @@
+/**
+ * ---------------------------------- 
+ * @todo THIS FILE IS INCOMPLETE
+ * ---------------------------------- 
+ */
+
 module.exports = {
   /**
-   * @dev
-   * Get BTC/USD data and save locally to
-   * data/daily-historical-prices/coinmarketcap-data/btc-usd.json`
+   * @dev Used to get daily price data of CMC's top 100 "DeFi" assets
    * @param {string[]} _url 
    * @param {package} _puppeteer 
    * @param {package} _fs 
