@@ -13,5 +13,5 @@ npm i
 2. Use node on the command line to run scripts:
 
 ```bash
-node coinmarketcap-scripts/allCmcCryptocurrencies.js
+node coinmarketcap-scripts/index.js
 ```
