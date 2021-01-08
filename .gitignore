@@ -33,7 +33,6 @@ yarn-error.log*
 .pnp.*
 
 # Skip these files and directories
-/coinmarketcap-scripts/getAllSaveDeFi.js
 /coinmarketcap-scripts/getAllStorage.js
 /coinmarketcap-scripts/getAllDeFi.js
 /data/daily-historical-prices/coinmarketcap/Cryptocurrencies/*.json
