@@ -2,6 +2,7 @@ const puppeteer = require('puppeteer')
 const fs = require('fs')
 const getAllCryptos = require('./getAllCryptos')
 const getAllDeFi = require('./getAllDeFi')
+const getAllStorage = require('./getAllStorage')
 
 const url = 'https://coinmarketcap.com/'
 
@@ -11,3 +12,4 @@ const url = 'https://coinmarketcap.com/'
  */
 getAllCryptos.getAndSaveCryptocurrenciesData(url, puppeteer, fs)
 getAllDeFi.getAndSaveDeFiData(url, puppeteer, fs)
+getAllStorage.getAndSaveStorageData(url, puppeteer, fs)
