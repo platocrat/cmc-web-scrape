@@ -144,7 +144,7 @@ module.exports = {
               return keys
             })
 
-            // Extract data from table
+            // Extract data from table on page
             const data = await page.evaluate(() => {
 
               // Extract rows
