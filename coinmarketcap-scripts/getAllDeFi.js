@@ -19,7 +19,11 @@ module.exports = {
         await page.setViewport({ width: 1124, height: 1100 })
         await page.goto(_url, { waitUntil: "load", timeout: 0 })
 
-        let currencyURLs = await page.evaluate(() => {
+        // Navigate to "DeFi"
+        await page.waitForSelector('a[href="/defi/"]')
+        await page.click('a[href="/defi/"]')
+
+        let defiURLs = await page.evaluate(() => {
 
           // Extract rows
           let rows = document.querySelectorAll('table tr')
@@ -31,11 +35,10 @@ module.exports = {
           })
         })
 
-        let currencyPairs,
-          cryptoSymbols = []
+        let cryptoSymbols = []
 
-        for (let i = 0; i < currencyURLs.length; i++) {
-          anchorTag = currencyURLs[ i ][ 2 ]
+        for (let i = 0; i < defiURLs.length; i++) {
+          anchorTag = defiURLs[ i ][ 2 ]
 
           if (anchorTag != undefined) {
             // Get currencySymbols
@@ -59,16 +62,16 @@ module.exports = {
             nameStartIndex = anchorTag.indexOf('/currencies/')
             nameEndIndex = anchorTag.indexOf('class="cmc-link">') - 2
 
-            currencyURLs[ i ] = anchorTag.slice(nameStartIndex, nameEndIndex)
+            defiURLs[ i ] = anchorTag.slice(nameStartIndex, nameEndIndex)
           }
         }
 
-        currencyURLs = currencyURLs.splice(1)
+        defiURLs = defiURLs.splice(1)
 
 
         // Get data for each cryptocurrency in top 100 and save to JSON file.
         for (let z = 0; z < cryptoSymbols.length; z++) {
-          if (typeof currencyURLs[ z ] !== 'string') {
+          if (typeof defiURLs[ z ] !== 'string') {
             console.log("A galactic jukebox is juking in the distance 🎵👾🪐🕺...")
           } else {
 
@@ -76,7 +79,7 @@ module.exports = {
             await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36')
             await page.goto(_url, { waitUntil: "load", timeout: 1000 * 60 * 3 })
 
-            currencyURL = currencyURLs[ z ]
+            currencyURL = defiURLs[ z ]
 
             /** 
              * @notice Wait 3 minutes max for any wait function

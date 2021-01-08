@@ -31,8 +31,7 @@ module.exports = {
           })
         })
 
-        let currencyPairs,
-          cryptoSymbols = []
+        let cryptoSymbols = []
 
         for (let i = 0; i < currencyURLs.length; i++) {
           anchorTag = currencyURLs[ i ][ 2 ]
