@@ -14,8 +14,4 @@ npm i
 
 ```bash
 node coinmarketcap-scripts/index.js
-<<<<<<< HEAD
 ```
-=======
-```
->>>>>>> all-cmc-defi
