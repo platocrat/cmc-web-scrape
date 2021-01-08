@@ -168,7 +168,7 @@ module.exports = {
 
             // Save to .json file
             _fs.writeFile(
-              `./data/daily-historical-prices/coinmarketcap/Cryptocurrencies/${cryptoSymbols[ z ]}-usd.json`,
+              `./data/historical-daily-prices/coinmarketcap/Cryptocurrencies/${cryptoSymbols[ z ]}-usd.json`,
               JSON.stringify(cleanedData),
               error => {
                 if (error) {
