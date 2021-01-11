@@ -1,6 +1,6 @@
-# foffe-web-scrape
+# cmc-web-scrape
 
-Web scraping crypto data for foffe
+Web scraping crypto data.
 
 ## Setup
 
