@@ -4,10 +4,10 @@ Web scraping crypto data for foffe
 
 ## Setup
 
-1. Use `npm` to install project dependencies:
+1. Use `yarn` to install project dependencies:
 
 ```bash
-npm i
+yarn
 ```
 
 2. Use node on the command line to run scripts:
