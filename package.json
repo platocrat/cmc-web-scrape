@@ -1,9 +1,9 @@
 {
-  "name": "foffe-web-scrape",
-  "version": "0.1.0",
-  "description": "Web scraping crypto data for foffe",
-  "main": "puppeteer-test.js",
-  "repository": "git@github.com:platocrat/foffe-web-scrape.git",
+  "name": "cmc-web-scrape",
+  "version": "0.2.0",
+  "description": "Web scraping crypto data from cmc",
+  "main": "coinmarketcap-scripts/index.js",
+  "repository": "git@github.com:platocrat/cmc-web-scrape.git",
   "author": "platocrat [platocrat@tuta.io]",
   "license": "MIT",
   "dependencies": {
