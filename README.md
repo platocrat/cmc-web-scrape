@@ -1,6 +1,8 @@
 # cmc-web-scrape
 
-Web scraping crypto data.
+> _Note: This relies on [yarn2](https://yarnpkg.com/getting-started/install#per-project-install)_
+
+Web scraping CoinMarketCap's historical price data.
 
 ## Setup
 
