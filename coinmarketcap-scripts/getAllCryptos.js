@@ -167,11 +167,12 @@ module.exports = {
             }
 
             // Save to .json file
-            let jsonFolder = ""
+            let jsonFolder = '',
+              mainURL = 'https://coinmarketcap.com/'
 
-            if (_url.slice(_url.length) == 'defi') {
+            if (_url.slice(mainURL.length) == 'defi') {
               jsonFolder = 'DeFi'
-            } else if (_url.slice(_url.length) == 'storage') {
+            } else if (_url.slice(mainURL.length) == 'storage') {
               jsonFolder = 'Storage'
             } else {
               jsonFolder = 'Cryptocurrencies'
