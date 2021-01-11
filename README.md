@@ -10,8 +10,8 @@ Web scraping crypto data.
 yarn
 ```
 
-2. Use node on the command line to run scripts:
+2. Use the yarn script in the `package.json`:
 
 ```bash
-node coinmarketcap-scripts/index.js
+yarn testrun
 ```
