@@ -5,7 +5,7 @@ module.exports = {
    * @param {package} _puppeteer 
    * @param {package} _fs 
    */
-  getAndSaveCryptocurrenciesData:
+  getAndSaveData:
     async (_url, _puppeteer, _fs) => {
       const browser = await _puppeteer.launch({
         headless: false,
@@ -167,8 +167,18 @@ module.exports = {
             }
 
             // Save to .json file
+            let jsonFolder = ""
+
+            if (_url.slice(_url.length) == 'defi') {
+              jsonFolder = 'DeFi'
+            } else if (_url.slice(_url.length) == 'storage') {
+              jsonFolder = 'Storage'
+            } else {
+              jsonFolder = 'Cryptocurrencies'
+            }
+
             _fs.writeFile(
-              `./data/historical-daily-prices/coinmarketcap/Cryptocurrencies/${cryptoSymbols[ z ]}-usd.json`,
+              `./data/historical-daily-prices/coinmarketcap/${jsonFolder}/${cryptoSymbols[ z ]}-usd.json`,
               JSON.stringify(cleanedData),
               error => {
                 if (error) {
