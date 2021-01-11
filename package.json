@@ -8,5 +8,9 @@
   "license": "MIT",
   "dependencies": {
     "puppeteer": "^5.5.0"
+  },
+  "scripts": {
+    "scrape": "node coinmarketcap-scripts/index.js",
+    "testrun": "yarn scrape"
   }
 }
